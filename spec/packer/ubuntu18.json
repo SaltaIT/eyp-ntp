@@ -3,7 +3,7 @@
   [
     {
       "type":"docker",
-      "image":"centos:7",
+      "image":"ubuntu:18.04",
       "commit":"true"
     }
   ],
@@ -12,8 +12,8 @@
     {
       "type":"shell",
       "inline":[
-        "yum clean all",
-        "yum install -y git sudo curl gcc make crontabs tar wget iproute java-1.7.0-openjdk java-1.7.0-openjdk-devel",
+        "apt-get update",
+        "apt-get install git curl net-tools gcc make tar wget -y",
         "curl -L https://github.com/aelsabbahy/goss/releases/download/v0.3.13/goss-linux-amd64 > /usr/local/bin/goss && chmod +x /usr/local/bin/goss",
         "cd /opt; git clone https://github.com/jordiprats/puppet-masterless",
         "bash /opt/puppet-masterless/setup.sh"
@@ -21,7 +21,7 @@
     },
     {
       "type":"file",
-      "source":"spec/packer/goss/centos7.yaml",
+      "source":"spec/packer/goss/ubuntu18.yaml",
       "destination":"/tmp/goss.yaml"
     },
     {
