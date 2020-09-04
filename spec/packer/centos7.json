@@ -1,0 +1,82 @@
+{
+  "builders":
+  [
+    {
+      "type":"docker",
+      "image":"centos:7",
+      "commit":"true"
+    }
+  ],
+  "provisioners":
+  [
+    {
+      "type":"shell",
+      "inline":[
+        "yum clean all",
+        "yum install -y git sudo curl gcc make crontabs tar wget iproute java-1.7.0-openjdk java-1.7.0-openjdk-devel",
+        "curl -L https://github.com/aelsabbahy/goss/releases/download/v0.3.13/goss-linux-amd64 > /usr/local/bin/goss && chmod +x /usr/local/bin/goss",
+        "cd /opt; git clone https://github.com/jordiprats/puppet-masterless",
+        "bash /opt/puppet-masterless/setup.sh"
+      ]
+    },
+    {
+      "type":"file",
+      "source":"spec/packer/goss/centos7.yaml",
+      "destination":"/tmp/centos7.yaml"
+    },
+    {
+      "type":"shell",
+      "inline":[
+        "mkdir -p /tmp/goss.d/"
+      ]
+    },
+    {
+      "type":"file",
+      "source":"spec/packer/goss/goss.d/",
+      "destination":"/tmp/goss.d"
+    },
+    {
+      "type":"shell",
+      "inline":[
+        "mkdir -p /tmp/puppet/ntp"
+      ]
+    },
+    {
+      "type":"file",
+      "source":"./",
+      "destination":"/tmp/puppet/ntp"
+    },
+    {
+      "type":"file",
+      "source":"spec/packer/puppet/site.pp",
+      "destination":"/tmp/puppet/site.pp"
+    },
+    {
+      "type":"shell",
+      "inline":[
+        "echo build module",
+        "/opt/puppet-masterless/localpuppetmaster.sh -d /tmp/masterless -b /tmp/puppet/ntp"
+      ]
+    },
+    {
+      "type":"shell",
+      "inline":[
+        "echo show module dependencies",
+        "/opt/puppet-masterless/localpuppetmaster.sh -d /tmp/masterless -l"
+      ]
+    },
+    {
+      "type":"shell",
+      "inline":[
+        "echo apply site.pp",
+        "/opt/puppet-masterless/localpuppetmaster.sh -d /tmp/masterless -s /tmp/puppet/site.pp"
+      ]
+    },
+    {
+      "type":"shell",
+      "inline":[
+        "/usr/local/bin/goss -g /tmp/centos7.yaml validate"
+      ]
+    }
+  ]
+}

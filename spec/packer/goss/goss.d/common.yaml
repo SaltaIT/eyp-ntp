@@ -1,0 +1,11 @@
+package:
+  ntp:
+    installed: true
+user:
+  ntp:
+    exists: true
+    groups:
+    - ntp
+group:
+  ntp:
+    exists: true
