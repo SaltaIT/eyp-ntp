@@ -17,7 +17,7 @@
 
 ## Overview
 
-Installs, configures, and manages the NTP service.
+Installs, configures, and manages the NTP service using the openNTP daemon or the **timesyncd** when not available (for exemple RHEL8)
 
 ## Module Description
 
