@@ -38,13 +38,13 @@
     {
       "type":"shell",
       "inline":[
-        "mkdir -p /tmp/puppet/ntp"
+        "mkdir -p /tmp/puppet/puppet_module"
       ]
     },
     {
       "type":"file",
       "source":"./",
-      "destination":"/tmp/puppet/ntp"
+      "destination":"/tmp/puppet/puppet_module"
     },
     {
       "type":"file",
@@ -55,7 +55,7 @@
       "type":"shell",
       "inline":[
         "echo build module",
-        "/opt/puppet-masterless/localpuppetmaster.sh -d /tmp/masterless -b /tmp/puppet/ntp"
+        "/opt/puppet-masterless/localpuppetmaster.sh -d /tmp/masterless -b /tmp/puppet/puppet_module"
       ]
     },
     {

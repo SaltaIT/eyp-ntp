@@ -9,3 +9,20 @@ user:
 group:
   ntp:
     exists: true
+file:
+  /etc/ntp.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contains:
+      - 'puppet managed file'
+      - 'server 1.ie.pool.ntp.org iburst'
+      - 'server 0.europe.pool.ntp.org iburst'
+      - 'server 3.europe.pool.ntp.org iburst'
+      - 'driftfile'
+      - 'restrict -4 default kod notrap nomodify nopeer noquery'
+      - 'restrict -6 default kod notrap nomodify nopeer noquery'
+      - 'restrict 127.0.0.1'
+      - 'restrict ::1'
