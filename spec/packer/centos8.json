@@ -13,7 +13,7 @@
       "type":"shell",
       "inline":[
         "yum clean all",
-        "yum install -y git sudo curl gcc make crontabs tar wget iproute java-1.7.0-openjdk java-1.7.0-openjdk-devel",
+        "yum install -y git sudo curl gcc make crontabs tar wget iproute",
         "curl -L https://github.com/aelsabbahy/goss/releases/download/v0.3.13/goss-linux-amd64 > /usr/local/bin/goss && chmod +x /usr/local/bin/goss",
         "cd /opt; git clone https://github.com/jordiprats/puppet-masterless",
         "bash /opt/puppet-masterless/setup.sh"
