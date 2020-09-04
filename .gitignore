@@ -5,7 +5,6 @@
 /log
 /spec/fixtures/manifests
 /spec/fixtures/modules
-/spec/goss/modules
 /Gemfile.lock
 /.yardwarns
 /.yardoc
