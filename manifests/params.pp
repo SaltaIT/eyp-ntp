@@ -157,6 +157,28 @@ class ntp::params {
                                         'limited',
                                       ]
             }
+            /^20.*$/:
+            {
+              $systemd_timesync_available=true
+              $restrict_ipv4_default = [
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
+                                        'limited',
+                                      ]
+              $restrict_ipv6_default = [
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
+                                        'limited',
+                                      ]
+            }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
         }

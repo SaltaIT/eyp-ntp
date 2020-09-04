@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.16
+
+* added support for **Ubuntu 20.04**
+
 ## 0.1.15
 
 * added ntp::cron using ntpdate
@@ -10,7 +14,7 @@
 
 ## 0.1.13
 
-* added support for SLES 12.4
+* added support for **SLES 12.4**
 
 ## 0.1.12
 
@@ -18,11 +22,11 @@
 
 ## 0.1.11
 
-* added support for SLES 12.3
+* added support for **SLES 12.3**
 
 ## 0.1.10
 
-* added support for Ubuntu 18.04
+* added support for **Ubuntu 18.04**
 * added timesync as the default NTP client for Ubuntu 18.04, can be enforced to use ntp setting **force_ntpd** to true
 
 ## 0.1.9
@@ -51,7 +55,7 @@
 ## 0.1.4
 
 * added a variable to be able to restrict access
-* Ubuntu 16.04 support
+* added support for **Ubuntu 16.04**
 * added ipv4 and ipv6 restrict options as a variable
 
 ## 0.1.3
