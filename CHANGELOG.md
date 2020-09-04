@@ -3,7 +3,7 @@
 ## 0.1.16
 
 * added support for **Ubuntu 20.04**
-* added acceptance testing using **jordiprats/puppetmasterless-action@v1.0**
+* added acceptance testing using **jordiprats/puppetmasterless-action**
 
 ## 0.1.15
 
