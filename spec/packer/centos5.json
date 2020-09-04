@@ -3,7 +3,7 @@
   [
     {
       "type":"docker",
-      "image":"centos:7",
+      "image":"centos:5",
       "commit":"true"
     }
   ],

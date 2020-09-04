@@ -21,7 +21,7 @@
     },
     {
       "type":"file",
-      "source":"spec/packer/goss/ubuntu18.yaml",
+      "source":"spec/packer/goss/ubuntu.yaml",
       "destination":"/tmp/goss.yaml"
     },
     {

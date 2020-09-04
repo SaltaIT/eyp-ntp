@@ -3,6 +3,7 @@
 ## 0.1.16
 
 * added support for **Ubuntu 20.04**
+* added support for **CentOS 8**
 * added acceptance testing using **jordiprats/puppetmasterless-action**
 
 ## 0.1.15
